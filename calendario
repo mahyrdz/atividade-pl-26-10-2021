@@ -1,0 +1,93 @@
+<html>
+<head>
+</head>
+
+<body>
+<script language = javascript>
+
+var umaData, ano, mes, dd, corFonte, corFundo, meses;
+
+meses = Array(12);
+meses[0]="Janeiro";
+meses[1]="Fevereiro";
+meses[2]="Março";
+meses[3]="Abril";
+meses[4]="Maio";
+meses[5]="Junho";
+meses[6]="Julho";
+meses[7]="Agosto";
+meses[8]="Setembro";
+meses[9]="Outubro";
+meses[10]="Novembro";
+meses[11]="Dezembro";
+
+ano = parseInt(window.prompt("Qual ano?"));
+mes = parseInt(window.prompt("Qual mes?"));
+
+umaData = new Date();
+umaData.setDate(1);
+umaData.setMonth(mes-1);
+umaData.setFullYear(ano);
+
+mes = umaData.getMonth();
+ano = umaData.getFullYear();
+
+document.write("<h1>" + meses[mes] + "/" + ano + "</h1>");
+
+document.write("<br>");
+
+document.write("<table border=3>");
+
+  diasSemana = Array(7);
+    diasSemana[6]="<td bgcolor = #008080 width=100 align=center><font face=arial size=6 color = white>Dom";
+    diasSemana[5]="<td width=100 align=center><font face=arial size=6 color = #008080>Seg";
+    diasSemana[4]="<td width=100 align=center><font face=arial size=6 color = #008080>Ter";
+    diasSemana[3]="<td width=100 align=center><font face=arial size=6 color = #008080>Qua";
+    diasSemana[2]="<td width=100 align=center><font face=arial size=6 color = #008080>Qui";
+    diasSemana[1]="<td width=100 align=center><font face=arial size=6 color = #008080>Sex";
+    diasSemana[0]="<td width=100 align=center><font face=arial size=6 color = #008080>Sáb";
+ 
+    document.write("<tr>");
+  document.write(diasSemana[6]);
+  document.write(diasSemana[5]);
+  document.write(diasSemana[4]);
+  document.write(diasSemana[3]);
+  document.write(diasSemana[2]);
+  document.write(diasSemana[1]);
+  document.write(diasSemana[0]);
+   document.write("</font>");
+    document.write("</tr>");
+
+  for(dd = 2; dd < 33; ++dd)
+{
+  if (umaData.getDay()==0)
+     {
+      corFundo="#008080";
+      corFonte="white";
+      document.write("<tr>");
+     }
+    else if (umaData.getDay()==7)
+    {
+      corFundo="white";
+      corFonte="#008080";
+      document.write("</tr><tr>");
+    }
+   else
+     {
+      corFundo="white";
+      corFonte="#008080";
+     }
+
+   document.write("<td bgcolor = " + corFundo + " width=100 align=center>");
+   document.write("<font face=arial size=6 color=" + corFonte + ">" + 
+                  umaData.getDate() + "</font>");
+   document.write("</td>");
+
+   umaData.setDate(dd);
+   }
+  
+document.write("</table>");
+
+</script>
+</body>
+</html>
